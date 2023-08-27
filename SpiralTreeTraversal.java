@@ -20,6 +20,52 @@ public class SpiralTreeTraversal {
 		root.right.right = new Node(7);
 
 		printSpiral(root);
+
+		System.out.println();
+		
+		printSpiral_1(root);
+	}
+
+	private static void printSpiral_1(Node root) {
+
+		if (root == null)
+			return;
+
+		Stack<Node> s1 = new Stack<>();
+		Stack<Node> s2 = new Stack<>();
+
+		s1.add(root);
+
+		while (!s1.isEmpty() || !s2.isEmpty()) {
+			while (!s1.isEmpty()) {
+				Node curr = s1.pop();
+
+				System.out.print(curr.key + " ");
+
+				if (curr.left != null)
+					s2.add(curr.left);
+
+				if (curr.right != null)
+					s2.add(curr.right);
+			}
+			
+			System.out.println();
+
+			while (!s2.isEmpty()) {
+				Node curr = s2.pop();
+
+				System.out.print(curr.key + " ");
+
+				if (curr.right != null)
+					s1.add(curr.right);
+
+				if (curr.left != null)
+					s1.add(curr.left);
+			}
+			System.out.println();
+
+		}
+
 	}
 
 	private static void printSpiral(Node root) {
@@ -57,7 +103,7 @@ public class SpiralTreeTraversal {
 				while (!s.isEmpty()) {
 					System.out.print(s.pop() + " ");
 				}
-			
+
 			reverse = !reverse;
 
 			System.out.println();
