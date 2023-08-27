@@ -1,4 +1,4 @@
-package in.Algo.Tree;
+package in.Algo.Tree.LogicDrivenDev;
 
 import java.util.HashMap;
 import java.util.Map;

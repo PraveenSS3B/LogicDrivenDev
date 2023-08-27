@@ -1,4 +1,4 @@
-package in.Algo.Tree;
+package in.Algo.Tree.LogicDrivenDev;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -32,7 +32,7 @@ public class LevelOrderTraversal {
 
 	}
 
-	private static void levelOrderTraversalPrintLineByLine2(Node root) {
+	protected static void levelOrderTraversalPrintLineByLine2(Node root) {
 		Queue<Node> q = new LinkedList<Node>();
 		
 		q.add(root);
