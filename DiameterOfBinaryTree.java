@@ -1,8 +1,9 @@
 package in.Algo.Tree.LogicDrivenDev;
 
-public class DiameterOfBinaryTree {
+import java.util.HashMap;
+import java.util.Map;
 
-	static int maxDiameter = 0;
+public class DiameterOfBinaryTree {
 
 	public static void main(String[] args) {
 
@@ -17,6 +18,44 @@ public class DiameterOfBinaryTree {
 		root.right.left.left = new Node(60);
 
 		System.out.println(getDiameter(root));
+
+		Map<Node, Integer> nodeHeights = new HashMap<>();
+
+		height(root, nodeHeights);
+
+		System.out.println(getDiameter(root, nodeHeights));
+
+	}
+
+	public static int height(Node root, Map<Node, Integer> map) {
+		if (root == null)
+			return 0;
+
+		int lh = height(root.left, map);
+
+		int rh = height(root.right, map);
+
+		int currHeight = Math.max(lh, rh) + 1;
+
+		map.put(root, currHeight);
+
+		return currHeight;
+	}
+
+	// Better Solution - Using PreComputing Height Values of each Node..
+	private static int getDiameter(Node root, Map<Node, Integer> nodeHeights) {
+
+		if (root == null)
+			return 0;
+
+		int d1 = 1 + (nodeHeights.containsKey(root.left) ? nodeHeights.get(root.left) : 0)
+				+ (nodeHeights.containsKey(root.right) ? nodeHeights.get(root.right) : 0);
+
+		int d2 = getDiameter(root.left, nodeHeights);
+
+		int d3 = getDiameter(root.right, nodeHeights);
+
+		return Math.max(d1, Math.max(d2, d3));
 
 	}
 
