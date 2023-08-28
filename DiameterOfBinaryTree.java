@@ -5,6 +5,8 @@ import java.util.Map;
 
 public class DiameterOfBinaryTree {
 
+	static int maxDiameter = 0;
+
 	public static void main(String[] args) {
 
 		Node root = new Node(10);
@@ -25,6 +27,21 @@ public class DiameterOfBinaryTree {
 
 		System.out.println(getDiameter(root, nodeHeights));
 
+		diameter(root);
+		System.out.println(maxDiameter);
+
+	}
+
+	private static int diameter(Node root) {
+		if (root == null)
+			return 0;
+
+		int lh = diameter(root.left);
+		int rh = diameter(root.right);
+
+		maxDiameter = Math.max(maxDiameter, 1 + lh + rh);
+		
+		return Math.max(lh, rh) + 1;
 	}
 
 	public static int height(Node root, Map<Node, Integer> map) {
