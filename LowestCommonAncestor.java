@@ -22,6 +22,32 @@ public class LowestCommonAncestor {
 
 		System.out.println(lca(root, n1, n2).key);
 
+		System.out.println(lca_Efficient(root, n1, n2).key);
+
+	}
+
+	// Efficient Solution - Requires Non Extra Space
+
+	private static Node lca_Efficient(Node root, int n1, int n2) {
+
+		if (root == null)
+			return null;
+
+		if (root.key == n1 || root.key == n2)
+			return root;
+
+		Node lca1 = lca_Efficient(root.left, n1, n2);
+		Node lca2 = lca_Efficient(root.right, n1, n2);
+
+		if (lca1 != null && lca2 != null)
+			return root;
+
+		if (lca1 != null)
+			return lca1;
+
+		else
+			return lca2;
+
 	}
 
 	private static boolean findPath(Node root, ArrayList<Node> l1, int n) {
