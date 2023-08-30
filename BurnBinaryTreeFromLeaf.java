@@ -26,10 +26,10 @@ public class BurnBinaryTreeFromLeaf {
 
 		int leaf = 50;
 
-		Distance dist = new Distance(0);
+		Distance dist = new Distance(-1);
 
 		burnBT(root, leaf, dist);
-		System.out.println(dist.val);
+		System.out.println(max);
 	}
 
 	private static int burnBT(Node root, int leaf, Distance dist) {
