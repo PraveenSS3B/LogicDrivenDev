@@ -29,9 +29,12 @@ public class BurnBinaryTreeFromLeaf {
 		Distance dist = new Distance(-1);
 
 		burnBT(root, leaf, dist);
+
+		// answer
 		System.out.println(max);
 	}
 
+	// This Logic works only if the leaf node is actually present in the Binary Tree
 	private static int burnBT(Node root, int leaf, Distance dist) {
 
 		if (root == null)
@@ -48,12 +51,12 @@ public class BurnBinaryTreeFromLeaf {
 		int lh = burnBT(root.left, leaf, lDist);
 		int rh = burnBT(root.right, leaf, rDist);
 
-		if (lDist.val != -1) {
+		if (lDist.val != -1) { // if not -1 then it's ancestor to the target leaf node
 			dist.val = lDist.val + 1;
 			max = Math.max(max, rh + dist.val);
 		}
 
-		if (rDist.val != -1) {
+		if (rDist.val != -1) { // if not -1 then it's ancestor to the target leaf node
 			dist.val = rDist.val + 1;
 			max = Math.max(max, lh + dist.val);
 		}
