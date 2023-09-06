@@ -25,17 +25,17 @@ public class IterativePreorderTraversal {
 	private static void preorder(Node root) {
 		Stack<Node> s = new Stack<>();
 
-		Node currNode = root;
+		s.add(root);
 
-		while (currNode != null || !s.isEmpty()) {
-			while (currNode != null) {
-				System.out.print(currNode.key + " ");
-				s.add(currNode);
-				currNode = currNode.left;
-			}
+		Node currNode = null;
 
+		while (!s.isEmpty()) {
 			currNode = s.pop();
-			currNode = currNode.right;
+			System.out.print(currNode.key + " ");
+			if (currNode.right != null)
+				s.add(currNode.right);
+			if (currNode.left != null)
+				s.add(currNode.left);
 		}
 
 	}
