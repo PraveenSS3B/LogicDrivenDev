@@ -3,19 +3,19 @@ package in.Algo.Tree.LogicDrivenDev;
 public class SerializeToString_Deserialze extends LevelOrderTraversal{
 
 	public static void main(String[] args) {
-		
-		Node root = new Node(20);
 
+		Node root = new Node(20);
+		
 		root.left = new Node(8);
 		root.left.left = new Node(3);
 		root.left.right = new Node(5);
 
 		root.right = new Node(12);
-		
+
 		String serializedBT = serialize(root);
-		
+
 		Node deserializedBT = new SerializeToString_Deserialze().deserialize(serializedBT);
-		
+
 		LevelOrderTraversal.levelOrderTraversalPrintLineByLine2(deserializedBT);
 
 	}
