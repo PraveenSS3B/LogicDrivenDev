@@ -22,6 +22,7 @@ public class IterativePreorderTraversal {
 		preorder(root);
 	}
 
+	// This solution takes Big O(n) Auxialary Space
 	private static void preorder(Node root) {
 		Stack<Node> s = new Stack<>();
 
