@@ -19,26 +19,39 @@ public class IterativePreorderTraversal {
 		root.right = new Node(30);
 
 		root.right.right = new Node(60);
-		preorder(root);
+//		preorder(root);
+//		System.out.println();
+		preOrder_SpaceOptimized(root);
 	}
 
-	// This solution takes Big O(n) Auxialary Space
-	private static void preorder(Node root) {
+	private static void preOrder_SpaceOptimized(Node root) {
 		Stack<Node> s = new Stack<>();
-
 		s.add(root);
-
-		Node currNode = null;
-
+		Node curr = root;
 		while (!s.isEmpty()) {
-			currNode = s.pop();
-			System.out.print(currNode.key + " ");
-			if (currNode.right != null)
-				s.add(currNode.right);
-			if (currNode.left != null)
-				s.add(currNode.left);
+			while (curr != null) {
+				System.out.print(curr.key + " ");
+				if (curr.right != null)
+					s.push(curr.right);
+				curr = curr.left;
+			}
+			curr = s.pop();
 		}
 
 	}
+
+	/*
+	 * private static void preorder(Node root) { Stack<Node> s = new Stack<>();
+	 * 
+	 * s.add(root);
+	 * 
+	 * Node currNode = null;
+	 * 
+	 * while (!s.isEmpty()) { currNode = s.pop(); System.out.print(currNode.key +
+	 * " "); if (currNode.right != null) s.add(currNode.right); if (currNode.left !=
+	 * null) s.add(currNode.left); }
+	 * 
+	 * }
+	 */
 
 }
