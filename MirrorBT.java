@@ -12,36 +12,35 @@ public class MirrorBT {
 		root.left.right = new Node(50);
 
 		root.right.right = new Node(70);
-		
+
 		mirror(root);
-		
+
 		inOrder(root);
 
 	}
 
 	private static void mirror(Node root) {
-		
-		if(root != null)
+
+		if (root != null) 
 		{
 			Node left = root.left;
-			
+
 			Node right = root.right;
-			
+
 			Node tmp = left;
-			
+
 			root.left = right;
 			root.right = tmp;
-			
+
 			mirror(root.left);
 			mirror(root.right);
-			
+
 		}
-		
+
 	}
 
 	private static void inOrder(Node root) {
-		if(root != null)
-		{
+		if (root != null) {
 			inOrder(root.left);
 			System.out.print(root.key + " ");
 			inOrder(root.right);
