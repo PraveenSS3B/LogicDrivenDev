@@ -16,6 +16,11 @@ public class FoldableBT {
 		System.out.println(isFoldable(root));
 	}
 
+	/**
+	 * 
+	 * @param takes Root of the tree, 
+	 * @returns if is Foldable or not.
+	 */
 	private static String isFoldable(Node root) {
 		if (root == null)
 			return "YES";
@@ -23,6 +28,11 @@ public class FoldableBT {
 		return areMirror(root.left, root.right) ? "YES" : "NO";
 	}
 
+	/**
+	 * @param lst -> points to the left subtree of the root Node
+	 * @param rst -> points to the right subtree of the root Node
+	 * @return -> True, if the Binary Tree is mirror image of original else False.
+	 */
 	private static boolean areMirror(Node lst, Node rst) {
 		if (lst == null && rst == null)
 			return true;
