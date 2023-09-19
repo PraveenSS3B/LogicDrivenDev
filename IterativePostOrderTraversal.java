@@ -17,9 +17,43 @@ public class IterativePostOrderTraversal {
 
 //		postOrder(root);
 
-		postOrder_UsingOneStack(root);
+//		postOrder_UsingOneStack(root);
+		postOrder_UsingOneStack_Diff_Approach(root);
 
 	}
+	
+	private static void postOrder_UsingOneStack_Diff_Approach(Node root) {
+	    if (root == null)
+	        return;
+
+	    Stack<Node> stack = new Stack<>();
+	    Node curr = root;
+
+	    while (curr != null || !stack.isEmpty()) {
+	        while (curr != null) {
+	            if (curr.right != null)
+	                stack.push(curr.right);
+
+	            stack.push(curr);
+	            curr = curr.left;
+	        }
+
+	        curr = stack.pop();
+
+	        // If the popped node has a right child and the right child is at the top of the stack,
+	        // then remove the right child from the stack, push the current node back onto the stack,
+	        // and set the current node to the right child.
+	        if (!stack.isEmpty() && curr.right == stack.peek()) {
+	            stack.pop(); // Remove the right child from the stack.
+	            stack.push(curr); // Push the current node back onto the stack.
+	            curr = curr.right; // Set the current node to the right child.
+	        } else {
+	            System.out.print(curr.key + " ");
+	            curr = null; // Set the current node to null to avoid revisiting it.
+	        }
+	    }
+	}
+
 
 	private static void postOrder_UsingOneStack(Node root) {
 		if (root == null)
