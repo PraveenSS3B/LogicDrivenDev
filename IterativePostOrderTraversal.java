@@ -15,8 +15,42 @@ public class IterativePostOrderTraversal {
 
 		root.left.right = new Node(50);
 
-		postOrder(root);
+//		postOrder(root);
 
+		postOrder_UsingOneStack(root);
+
+	}
+
+	private static void postOrder_UsingOneStack(Node root) {
+		if (root == null)
+			return;
+
+		Stack<Node> s = new Stack<>();
+
+		Node curr = root;
+
+		while (!s.isEmpty() || curr != null) {
+			if (curr != null) {
+				s.push(curr);
+				curr = curr.left;
+			}
+
+			else {
+				Node tmp = s.peek().right;
+				if (tmp == null) {
+					tmp = s.pop();
+					System.out.print(tmp.key + " ");
+					while (!s.isEmpty() && tmp == s.peek().right) {
+						tmp = s.pop();
+						System.out.print(tmp.key + " ");
+					}
+				}
+
+				else {
+					curr = tmp;
+				}
+			}
+		}
 	}
 
 	static void postOrder(Node root) {
