@@ -30,13 +30,18 @@ public class DistinctNodeAt_K_DistanceFromLeaf {
 
 		getNodes(root, k, l, 0);
 
-//		m.forEach((key, value) -> System.out.println(key.key + ", " + value));
+		m.forEach((key, value) -> System.out.println(key.key + ", " + value));
 
 		return m.size();
 	}
 
 	void getNodes(Node root, int k, ArrayList<Node> l, int c) {
 
+		/*
+		 * also works if (root == null) return;
+		 */
+		
+		// better to check k value
 		if (k < 0 || root == null)
 			return;
 
