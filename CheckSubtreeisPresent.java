@@ -1,10 +1,6 @@
 package in.Algo.Tree.LogicDrivenDev;
 
-import java.util.ArrayList;
-
 public class CheckSubtreeisPresent {
-
-	static ArrayList<Integer> node_S_Path = new ArrayList<Integer>();
 
 	public static void main(String[] args) {
 		/*
