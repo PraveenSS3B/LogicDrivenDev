@@ -24,6 +24,7 @@ public class ConstructBinnaryTree extends LevelOrderTraversal {
 
 	}
 
+	// Efficient Approach
 	private static Node makeBT(int[] in, int[] pre, int start, int end, Map<Integer, Integer> map) {
 
 		if (end < start)
@@ -34,8 +35,8 @@ public class ConstructBinnaryTree extends LevelOrderTraversal {
 		// instead of looping n times getting index in constant time using map
 		int index = map.get(root.key); 
 
-		root.left = makeBT(in, pre, start, index - 1);
-		root.right = makeBT(in, pre, index + 1, end);
+		root.left = makeBT(in, pre, start, index - 1, map);
+		root.right = makeBT(in, pre, index + 1, end, map);
 		
 		return root;
 	}
