@@ -50,6 +50,7 @@ public class LowestCommonAncestor {
 
 	}
 
+	// Tracking and storing the path from root node to target node
 	private static boolean findPath(Node root, ArrayList<Node> l1, int n) {
 
 		if (root == null)
@@ -60,6 +61,8 @@ public class LowestCommonAncestor {
 		if (root.key == n)
 			return true;
 
+		// finding the path in both left and right subtrees,
+		// if any one has the required node then return true.
 		if (findPath(root.left, l1, n) || findPath(root.right, l1, n))
 			return true;
 
@@ -88,6 +91,8 @@ public class LowestCommonAncestor {
 //		return l1.get(index);
 
 		int i;
+		// Checking if first element we found is not equal each other then return (i -
+		// 1) element
 		for (i = 0; i < l1.size() - 1 && i < l2.size() - 1; i++) {
 			if (l1.get(i + 1) != l2.get(i + 1))
 				break;
