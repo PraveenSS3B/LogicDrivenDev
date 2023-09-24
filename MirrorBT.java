@@ -21,13 +21,15 @@ public class MirrorBT {
 
 	/**
 	 * 
-	 * @param This method takes root of the tree and creates the mirror of the original Tree
-	 * 				  By swapping the values of left and right subtree nodes.
+	 * @param This method takes root of the tree and creates the mirror of the
+	 *             original Tree By swapping the values of left and right subtree
+	 *             nodes.
 	 */
 	private static void mirror(Node root) {
 
-		if (root != null) 
-		{
+		if (root != null) {
+
+			// Performing Swapping logic, exchanging left node to right and vice versa.
 			Node left = root.left;
 
 			Node right = root.right;
@@ -45,7 +47,7 @@ public class MirrorBT {
 	}
 
 	/**
-	 * This  method prints the mirror of the original tree
+	 * This method prints the mirror of the original tree
 	 */
 	private static void inOrder(Node root) {
 		if (root != null) {
