@@ -41,6 +41,7 @@ public class BinaryTreeLeftView {
 	}
 
 	// Iterative
+	// Level Order Traversal
 	private static void printLeftView(Node root) {
 		Queue<Node> q = new LinkedList<>();
 		q.add(root);
@@ -51,6 +52,11 @@ public class BinaryTreeLeftView {
 
 			for (int i = 0; i < size; i++) {
 				Node curr = q.poll();
+
+				/**
+				 * To Print the only left view, we are only interested in nodes at the start of
+				 * iteration of each new level of Binary Tree.
+				 */
 				if (i == 0)
 					System.out.print(curr.key + " ");
 
