@@ -33,7 +33,7 @@ public class Serialize_Deserialize_BT extends LevelOrderTraversal {
 
 		int val = list.get(preIndex++);
 
-		if (val == -1)
+		if (val == -1) // if val equals -1 then no nodes were left
 			return null;
 
 		Node root = new Node(val);
@@ -48,7 +48,7 @@ public class Serialize_Deserialize_BT extends LevelOrderTraversal {
 	private static void serialize(Node root, ArrayList<Integer> nodeList) {
 
 		if (root == null) {
-			nodeList.add(-1);
+			nodeList.add(-1); // pushing -1 to make the note that no nodes are left after that particular node
 			return;
 		}
 		nodeList.add(root.key);
