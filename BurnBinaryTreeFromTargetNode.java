@@ -26,7 +26,7 @@ public class BurnBinaryTreeFromTargetNode {
 		getNode(root, target);
 
 		int time = burn(root, targetNode, target, parentMapping, new HashMap<Node, Integer>());
-		
+
 		System.out.println(time);
 
 	}
@@ -85,6 +85,7 @@ public class BurnBinaryTreeFromTargetNode {
 
 	static Node targetNode = null;
 
+	// Getting the reference of target node
 	private static Node getNode(Node root, int target) {
 
 		if (root == null)
@@ -101,6 +102,7 @@ public class BurnBinaryTreeFromTargetNode {
 
 	}
 
+	// creating link between child and parent in reverse , i.e from child to parent!!!
 	private static void parentMap(Node root, Node target, Map<Node, Node> pr) {
 
 		if (root == null)
