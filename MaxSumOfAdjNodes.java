@@ -21,8 +21,10 @@ public class MaxSumOfAdjNodes {
 
 		int ans[] = new int[2];
 
+		// 0th element in the ans array is used to include the node
 		ans[0] = root.key + leftPair[1] + rightPair[1];
 
+//		1st element in the ans array is used to exclude the node
 		ans[1] = Math.max(leftPair[0], leftPair[1]) + Math.max(rightPair[0], rightPair[1]);
 
 		return ans;
