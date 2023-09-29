@@ -49,20 +49,26 @@ public class BinaryTree_To_DoublyLInkedList {
 
 	static Node prev = null;
 	static Node head = null;
+
 	private static Node convert(Node root) {
 
 		if (root == null)
 			return root;
 
 		convert(root.left);
+//		Node head = convert(root.left); // works
 
+		// This line works only once to the left most leaf node and assign as head
 		if (prev == null)
 			head = root;
 		else {
+			// Linking the current node left as prev node i.e., left node and
+			// prev node right as current node
 			prev.right = root;
 			root.left = prev;
 		}
 
+		// Before going to next node marking the current node as previous one!
 		prev = root;
 
 		convert(root.right);
