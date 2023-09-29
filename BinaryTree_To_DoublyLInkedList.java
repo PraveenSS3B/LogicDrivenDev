@@ -48,13 +48,13 @@ public class BinaryTree_To_DoublyLInkedList {
 	}
 
 	static Node prev = null;
-
+	static Node head = null;
 	private static Node convert(Node root) {
 
 		if (root == null)
 			return root;
 
-		Node head = convert(root.left);
+		convert(root.left);
 
 		if (prev == null)
 			head = root;
