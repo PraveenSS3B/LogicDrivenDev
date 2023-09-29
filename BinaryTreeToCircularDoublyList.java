@@ -43,17 +43,23 @@ public class BinaryTreeToCircularDoublyList {
 
 		convert(root.left);
 
+		// This line works only once to the left most leaf node and assign as head
 		if (prev == null)
 			head = root;
 
 		else {
+			// Linking the current node left as prev node i.e., left node and
+			// prev node right as current node
 			prev.right = root;
 			root.left = prev;
 		}
 
+//		Before going to next node marking the current node as previous one!
 		prev = root;
 		convert(root.right);
 
+		// After constructing Doubly Linked List, we are linking head and tail together.
+		// hence making Circularly Doubly Linked List
 		prev.right = head;
 		head.left = prev;
 
