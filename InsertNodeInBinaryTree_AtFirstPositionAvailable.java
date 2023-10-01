@@ -10,9 +10,10 @@ public class InsertNodeInBinaryTree_AtFirstPositionAvailable {
 
 		int key = 12;
 
-		Node updatedNode = insert(root, key);
+		Node root1 = VerticalWidth_BT.buildTree("10 11 9 7 N 15 8");
 
-		LevelOrderTraversal.levelOrderTraversalPrintLineByLine2(updatedNode);
+		LevelOrderTraversal.levelOrderTraversalPrintLineByLine2(insert(root, key));
+		LevelOrderTraversal.levelOrderTraversalPrintLineByLine2(insert1(root1, key));
 	}
 
 	private static Node insert(Node root, int key) {
@@ -52,4 +53,28 @@ public class InsertNodeInBinaryTree_AtFirstPositionAvailable {
 
 	}
 
+	private static Node insert1(Node root, int key) {
+
+		Queue<Node> q = new LinkedList<>();
+		q.add(root);
+
+		while (!q.isEmpty()) {
+			Node curr = q.poll();
+
+			if (curr.left == null) {
+				curr.left = new Node(key);
+				break;
+			} else
+				q.add(curr.left);
+
+			if (curr.right == null) {
+				curr.right = new Node(key);
+				break;
+			}
+
+			else
+				q.add(curr.right);
+		}
+		return root;
+	}
 }
